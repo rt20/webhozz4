@@ -41,7 +41,12 @@ class UserController extends Controller
             'password' => 'required|min:6|confirmed'
         ]);
 
-        $user = User::create($request->only('email', 'username', 'name', 'password'));
+        $user = User::create([
+            'email' => $request->email,
+            'username' => $request->username,
+            'name' => $request->name,
+            'password' => bcrypt($request->password),
+        ]);
 
         $roles = $request['roles'];
         if (isset($roles)) {
@@ -79,9 +84,13 @@ class UserController extends Controller
             'password' => 'required|min:6|confirmed'
         ]);
 
-        $input = $request->only(['name', 'username', 'email', 'password']);
         $roles = $request['roles'];
-        $user->fill($input)->save();
+        $user->fill([
+            'name' => $request->name,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+        ])->save();
 
         if (isset($roles)) {
             $user->roles()->sync($roles);

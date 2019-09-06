@@ -79,7 +79,20 @@
         </nav>
 
         <main class="py-4">
+            @auth
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 pb-4">
+                        @include('layouts._menu')
+                    </div>
+                    <div class="col-md-8">
+                        @yield('content')
+                    </div>
+                </div>
+            </div>
+            @else
             @yield('content')
+            @endauth
         </main>
     </div>
 </body>

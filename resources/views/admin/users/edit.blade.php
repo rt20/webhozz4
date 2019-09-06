@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row my-3">
-        <div class="col-md-8">
+        <div class="col-md-12">
             <div class="card no-b no-r">
                 {{ Form::model($user, array('route' => array('admin.users.update', $user->id), 'method' => 'PUT', 'files' => true)) }}
                 <div class="card-body">
