@@ -46,29 +46,38 @@
                     <div class="d-lg-flex">
                          <ul>
                               <li class="nav-label">Users & Authorization</li>
+                              @can('view user')
                               <li class="nav-sub-item">
-                                   <a href="page-groups.html" class="nav-sub-link">
+                                   <a href="{{ route('admin.users.index') }}" class="nav-sub-link">
                                         <i data-feather="users"></i> Users
                                    </a>
                               </li>
+                              @endcan
+                              @can('view role')
                               <li class="nav-sub-item">
-                                   <a href="page-timeline.html" class="nav-sub-link">
+                                   <a href="{{ route('admin.roles.index') }}" class="nav-sub-link">
                                         <i data-feather="file-text"></i> Roles
                                    </a>
                               </li>
+                              @endcan
+                              @can('view permission')
                               <li class="nav-sub-item">
-                                   <a href="page-verify.html" class="nav-sub-link">
+                                   <a href="{{ route('admin.permissions.index') }}" class="nav-sub-link">
                                         <i data-feather="user-check"></i> Permissions
                                    </a>
                               </li>
+                              @endcan
                          </ul>
+
                          <ul>
                               <li class="nav-label">Impersonating</li>
+                              @can('impersonate')
                               <li class="nav-sub-item">
-                                   <a href="page-404.html" class="nav-sub-link">
+                                   <a href="{{ route('impersonate.index') }}" class="nav-sub-link">
                                         <i data-feather="file"></i> Impersonate
                                    </a>
                               </li>
+                              @endcan
                          </ul>
                     </div>
                </div>
