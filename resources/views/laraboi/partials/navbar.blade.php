@@ -1,9 +1,9 @@
 <div class="navbar-brand">
-     <a href="#" class="df-logo">Lara<span>boi</span></a>
+     <a href="{{ route('home') }}" class="df-logo">Lara<span>boi</span></a>
 </div>
 <div id="navbarMenu" class="navbar-menu-wrapper">
      <div class="navbar-menu-header">
-          <a href="#" class="df-logo">Lara<span>boi</span></a>
+          <a href="{{ route('home') }}" class="df-logo">Lara<span>boi</span></a>
           <a id="mainMenuClose" href=""><i data-feather="x"></i></a>
      </div>
 

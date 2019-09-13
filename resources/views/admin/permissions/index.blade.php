@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('laraboi.app')
 
 @section('content')
 <div class="container">
@@ -27,10 +27,12 @@
                                     <td>{{ $loop->index + 1 }}</td>
                                     <td>{{ $permission->name }}</td>
                                     <td>
-                                        <a href="{{ route('admin.permissions.edit', $permission->id) }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+                                        <a href="{{ route('admin.permissions.edit', $permission->id) }}"
+                                            class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
                                     </td>
                                     <td>
-                                        {!! Form::open(['method' => 'DELETE', 'route' => ['admin.permissions.destroy', $permission->id] ]) !!}
+                                        {!! Form::open(['method' => 'DELETE', 'route' => ['admin.permissions.destroy',
+                                        $permission->id] ]) !!}
                                         {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                         {!! Form::close() !!}
                                     </td>
