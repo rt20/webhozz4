@@ -4,6 +4,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/foo', function () {
+    return view('laraboi.app');
+});
+
 Auth::routes();
 
 Route::middleware(['auth', 'impersonate'])->group(function () {
