@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "90dba9b3f10ffb13d2c8b01051cf7e83",
+    "content-hash": "3f77400c89c62998538d5ed41c0196ef",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -1086,6 +1086,67 @@
                 "time"
             ],
             "time": "2019-08-31T16:37:55+00:00"
+        },
+        {
+            "name": "nicoaudy/laravelmanthra",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nicoaudy/laravelmanthra.git",
+                "reference": "03ce3051e0ba27ba737825ddc8656adea692971f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nicoaudy/laravelmanthra/zipball/03ce3051e0ba27ba737825ddc8656adea692971f",
+                "reference": "03ce3051e0ba27ba737825ddc8656adea692971f",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.1",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~7.0",
+                "sempro/phpunit-pretty-print": "^1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "NicoAudy\\LaravelManthra\\LaravelManthraServiceProvider"
+                    ],
+                    "aliases": {
+                        "LaravelManthra": "NicoAudy\\LaravelManthra\\Facades\\LaravelManthra"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "NicoAudy\\LaravelManthra\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "NicoAudy",
+                    "email": "nicoaudy1994@gmail.com",
+                    "homepage": "https://nicoaudy.github.io"
+                }
+            ],
+            "description": "Laravel Manthra For Lazy Developer",
+            "homepage": "https://github.com/nicoaudy/laravelmanthra",
+            "keywords": [
+                "LaravelManthra",
+                "crud",
+                "crud generator",
+                "laravel",
+                "laravel crud generator"
+            ],
+            "time": "2019-09-16T07:08:40+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -4892,7 +4953,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "nicoaudy/laravelmanthra": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
