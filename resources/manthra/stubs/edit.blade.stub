@@ -1,44 +1,51 @@
-@extends('layouts.app')
+@extends('laraboi.app')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        Edit %%modelName%% #{{ $%%crudNameSingular%%->%%primaryKey%% }}
-                        <div class="text-right">
-                            <a href="{{ url('/%%routeGroup%%%%viewName%%') }}" title="Back">
-                                <button class="btn btn-warning">
-                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
-                                </button>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        @if ($errors->any())
-                            <ul class="alert alert-danger">
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
-
-                        {!! Form::model($%%crudNameSingular%%, [
-                            'method' => 'PATCH',
-                            'url' => ['/%%routeGroup%%%%viewName%%', $%%crudNameSingular%%->%%primaryKey%%],
-                            'class' => 'form-horizontal',
-                            'files' => true
-                        ]) !!}
-
-                        @include ('%%viewTemplateDir%%.form', ['submitButtonText' => 'Update'])
-
-                        {!! Form::close() !!}
-
-                    </div>
-                </div>
-            </div>
+<div class="container pd-x-0 pd-lg-x-10 pd-xl-x-0">
+    <div class="d-sm-flex align-items-center justify-content-between mg-b-20 mg-lg-b-25 mg-xl-b-30">
+        <div class="">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-style1 mg-b-10">
+                    <li class="breadcrumb-item">
+                        <a href="{{ route('home') }}">Dashboard</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="{{ url('/%%routeGroup%%%%viewName%%') }}">%%modelName%%</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        <a href="#">edit</a>
+                    </li>
+                </ol>
+            </nav>
+            <h4 class="mg-b-0 tx-spacing--1">Edit %%modelName%% #{{ $%%crudNameSingular%%->%%primaryKey%% }}</h4>
+        </div>
+        <div class="text-right">
+            <a href="{{ url('/%%routeGroup%%%%viewName%%') }}" title="Back">
+                <button class="btn btn-xs btn-warning">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back
+                </button>
+            </a>
         </div>
     </div>
+    <div class="">
+    @if ($errors->any())
+        <ul class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    @endif
+
+    {!! Form::model($%%crudNameSingular%%, [
+        'method' => 'PATCH',
+        'url' => ['/%%routeGroup%%%%viewName%%', $%%crudNameSingular%%->%%primaryKey%%],
+        'class' => 'form-horizontal',
+        'files' => true
+    ]) !!}
+
+    @include ('%%viewTemplateDir%%.form', ['submitButtonText' => 'Update'])
+
+    {!! Form::close() !!}
+    </div>
+</div>
 @endsection

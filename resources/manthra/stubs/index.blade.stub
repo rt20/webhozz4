@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('laraboi.app')
 
 @section('content')
 
@@ -50,14 +50,14 @@
                         <td>{{ $item->id }}</td>
                         %%formBodyHtml%%
                         <td>
-                            <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $item->%%primaryKey%%) }}" title="View %%modelName%%"><button class="btn btn-info"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
+                            <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $item->%%primaryKey%%) }}" title="View %%modelName%%"><button class="btn btn-xs btn-info"><i class="fa fa-eye" aria-hidden="true"></i></button></a>
                             <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $item->%%primaryKey%% . '/edit') }}" title="Edit %%modelName%%" class="btn btn-xs btn-info"><i class="fa fa-edit" aria-hidden="true"></i></a>
                             {!! Form::open([
                                 'method'=>'DELETE',
                                 'url' => ['/%%routeGroup%%%%viewName%%', $item->%%primaryKey%%],
                                 'style' => 'display:inline'
                             ]) !!}
-                                {!! Form::button('<i class="fa fa-trash" aria-hidden="true"></i> Delete', array(
+                                {!! Form::button('<i class="fa fa-trash" aria-hidden="true"></i>', array(
                                         'type' => 'submit',
                                         'class' => 'btn btn-xs btn-danger',
                                         'title' => 'Delete %%modelName%%',
