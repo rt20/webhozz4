@@ -2,7 +2,7 @@
 
 For personal use 🚀
 
-## Setup
+## Installation
 
 ```bash
 $ cd bin/
