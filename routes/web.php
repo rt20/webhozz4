@@ -4,15 +4,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/foo', function () {
-    return view('laraboi.app');
-});
-
 Auth::routes();
 
 Route::middleware(['auth', 'impersonate'])->group(function () {
 
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home')->middleware('password.confirm');
 
     Route::get('impersonate', 'ImpersonateController@index')->name('impersonate.index');
     Route::get('/users/{id}/impersonate', 'ImpersonateController@impersonate')->name('impersonate.impersonate');
@@ -24,3 +20,7 @@ Route::middleware(['auth', 'impersonate'])->group(function () {
         Route::resource('permissions', 'PermissionController');
     });
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
