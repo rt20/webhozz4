@@ -29,13 +29,11 @@
      @include('laraboi.partials.header')
 
      <div id="app">
-          <div class="content content-fixed content-auth">
+          <div class="content content-fixed">
                @yield('content')
           </div>
      </div>
 
-
-     @include('laraboi.partials.footer')
 
      <script src="{{ asset('lib/jquery/jquery.min.js') }}"></script>
      <script src="{{ asset('lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
