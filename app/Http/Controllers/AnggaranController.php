@@ -22,6 +22,15 @@ class AnggaranController extends Controller
     # Tugasnya untuk aksi insert data
     public function store()
     {
+        # validasi form input
+        $this->validate(request(), [
+            'kode' => 'required|min:4',
+            'name' => 'required|min:4',
+            'budget' => 'required|numeric',
+            'biaya' => 'numeric',
+            'sisa' => 'numeric',
+        ]);
+
         # Insert ke database
         # insert into anggaran blablabla
         Anggaran::create([
@@ -31,6 +40,9 @@ class AnggaranController extends Controller
             'biaya' => request('biaya'),
             'sisa' => request('sisa'),
         ]);
+
+        # Tampilin flash message
+        flash('Selamat data telah berhasil di buat')->success();
 
         # Kalo udah insert data, redirect ke halaman anggaran
         return redirect()->route('anggaran.index');
@@ -61,6 +73,9 @@ class AnggaranController extends Controller
             'sisa' => request('sisa'),
         ]);
 
+        # Tampilin flash message
+        flash('Selamat data telah berhasil di update')->success();
+
         # Kalo udah insert data, redirect ke halaman anggaran
         return redirect()->route('anggaran.index');
     }
@@ -72,6 +87,9 @@ class AnggaranController extends Controller
         if (!$row) return abort(404);
 
         $row->delete();
+
+        # Tampilin flash message
+        flash('Selamat data telah berhasil di delete')->error();
 
         # Kalo udah insert data, redirect ke halaman anggaran
         return redirect()->route('anggaran.index');

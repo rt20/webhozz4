@@ -30,6 +30,7 @@
 
      <div id="app">
           <div class="content content-fixed">
+               @include('flash::message')
                @yield('content')
           </div>
      </div>
