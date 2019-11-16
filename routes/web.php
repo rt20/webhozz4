@@ -39,7 +39,10 @@ Route::middleware(['auth', 'impersonate'])->group(function () {
         Route::resource('permissions', 'PermissionController');
     });
 
-    Route::get('anggaran', 'AnggaranController@index');
-    Route::get('anggaran/create', 'AnggaranController@create');
-    Route::post('anggaran', 'AnggaranController@store');
+    Route::get('anggaran', 'AnggaranController@index')->name('anggaran.index');             # nampilin data
+    Route::get('anggaran/create', 'AnggaranController@create')->name('anggaran.create');    # show form
+    Route::post('anggaran', 'AnggaranController@store')->name('anggaran.store');            # insert data 
+    Route::get('anggaran/{id}/edit', 'AnggaranController@edit')->name('anggaran.edit');     # show form edit 
+    Route::patch('anggaran/{id}', 'AnggaranController@update')->name('anggaran.update');    # update data
+    Route::delete('anggaran/{id}', 'AnggaranController@destroy')->name('anggaran.destroy'); # delete data
 });
