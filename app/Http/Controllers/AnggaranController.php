@@ -9,7 +9,7 @@ class AnggaranController extends Controller
     # Tugasnya nampilin data di table
     public function index()
     {
-        $data = Anggaran::all();
+        $data = Anggaran::paginate(2);
         return view('anggaran.index', compact('data'));
     }
 

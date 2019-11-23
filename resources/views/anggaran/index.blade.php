@@ -38,4 +38,6 @@
           @endforeach
      </tbody>
 </table>
+
+{!! $data->render() !!}
 @endsection
