@@ -45,4 +45,6 @@ Route::middleware(['auth', 'impersonate'])->group(function () {
     Route::get('anggaran/{id}/edit', 'AnggaranController@edit')->name('anggaran.edit');     # show form edit 
     Route::patch('anggaran/{id}', 'AnggaranController@update')->name('anggaran.update');    # update data
     Route::delete('anggaran/{id}', 'AnggaranController@destroy')->name('anggaran.destroy'); # delete data
+
+    Route::resource('audit', 'AuditController');
 });

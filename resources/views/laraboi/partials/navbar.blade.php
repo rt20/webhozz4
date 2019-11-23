@@ -22,20 +22,8 @@
                          </a>
                     </li>
                     <li class="nav-sub-item">
-                         <a href="app-chat.html" class="nav-sub-link"><i data-feather="message-square"></i>Chat</a>
-                    </li>
-                    <li class="nav-sub-item">
-                         <a href="app-contacts.html" class="nav-sub-link"><i data-feather="users"></i>Contacts</a>
-                    </li>
-                    <li class="nav-sub-item">
-                         <a href="app-file-manager.html" class="nav-sub-link">
-                              <i data-feather="file-text"></i>File
-                              Manager
-                         </a>
-                    </li>
-                    <li class="nav-sub-item">
-                         <a href="app-mail.html" class="nav-sub-link">
-                              <i data-feather="mail"></i>Mail
+                         <a href="/audit" class="nav-sub-link">
+                              <i data-feather="calendar"></i>Audit
                          </a>
                     </li>
                </ul>
