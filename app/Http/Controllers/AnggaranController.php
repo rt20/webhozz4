@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AnggaranExport;
+use App\Imports\AnggaranImport;
 use App\Models\Anggaran;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AnggaranController extends Controller
 {
     # Tugasnya nampilin data di table
     public function index()
     {
-        $data = Anggaran::paginate(2);
+        $data = Anggaran::paginate(1000);
         return view('anggaran.index', compact('data'));
     }
 
@@ -92,6 +95,19 @@ class AnggaranController extends Controller
         flash('Selamat data telah berhasil di delete')->error();
 
         # Kalo udah insert data, redirect ke halaman anggaran
+        return redirect()->route('anggaran.index');
+    }
+
+    public function export()
+    {
+        return Excel::download(new AnggaranExport, 'anggran.xls');
+    }
+
+    public function import()
+    {
+        Excel::import(new AnggaranImport, request()->file('file'));
+
+        flash('Success all good!')->success();
         return redirect()->route('anggaran.index');
     }
 }

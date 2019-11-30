@@ -2,6 +2,14 @@
 
 @section('content')
 <a href="{{ route('anggaran.create') }}" class="btn btn-primary mb-3">Create new anggaran</a>
+<a href="{{ route('anggaran.export') }}" class="btn btn-success mb-3 ml-4">Export</a>
+
+
+<form action="{{ route('anggaran.import') }}" method="POST" enctype="multipart/form-data">
+     @csrf
+     <input type="file" name="file">
+     <button type="submit" class="btn btn-info">Upload</button>
+</form>
 
 <table class="table">
      <thead class="thead-light">
@@ -18,7 +26,7 @@
      <tbody>
           @foreach($data as $row)
           <tr>
-               <th>{{ $row->id }}</th>
+               <th>{{ $loop->index + 1 }}</th>
                <td>{{ $row->code }}</td>
                <td>{{ $row->name }}</td>
                <td>{{ $row->budget }}</td>

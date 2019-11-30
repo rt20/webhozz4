@@ -46,5 +46,8 @@ Route::middleware(['auth', 'impersonate'])->group(function () {
     Route::patch('anggaran/{id}', 'AnggaranController@update')->name('anggaran.update');    # update data
     Route::delete('anggaran/{id}', 'AnggaranController@destroy')->name('anggaran.destroy'); # delete data
 
+    Route::get('anggaran/export', 'AnggaranController@export')->name('anggaran.export');    # export data
+    Route::post('anggaran/import', 'AnggaranController@import')->name('anggaran.import');   # import data
+
     Route::resource('audit', 'AuditController');
 });
