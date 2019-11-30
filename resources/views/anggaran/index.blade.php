@@ -11,6 +11,11 @@
      <button type="submit" class="btn btn-info">Upload</button>
 </form>
 
+<form>
+     <input type="text" name="search">
+     <button type="submit">Search</button>
+</form>
+
 <table class="table">
      <thead class="thead-light">
           <tr>
@@ -24,7 +29,7 @@
           </tr>
      </thead>
      <tbody>
-          @foreach($data as $row)
+          @forelse($data as $row)
           <tr>
                <th>{{ $loop->index + 1 }}</th>
                <td>{{ $row->code }}</td>
@@ -43,7 +48,11 @@
                     </form>
                </td>
           </tr>
-          @endforeach
+          @empty
+          <tr>
+               <td colspan="8">Data not found</td>
+          </tr>
+          @endforelse
      </tbody>
 </table>
 

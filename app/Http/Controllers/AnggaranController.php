@@ -12,7 +12,11 @@ class AnggaranController extends Controller
     # Tugasnya nampilin data di table
     public function index()
     {
-        $data = Anggaran::paginate(1000);
+        if (request()->search) {
+            $data = Anggaran::where('name', 'like', '%' . request()->search . '%')->paginate(1000);
+        } else {
+            $data = Anggaran::paginate(1000);
+        }
         return view('anggaran.index', compact('data'));
     }
 
