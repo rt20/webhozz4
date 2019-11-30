@@ -49,5 +49,7 @@ Route::middleware(['auth', 'impersonate'])->group(function () {
     Route::get('anggaran/export', 'AnggaranController@export')->name('anggaran.export');    # export data
     Route::post('anggaran/import', 'AnggaranController@import')->name('anggaran.import');   # import data
 
+    Route::post('photo/import', 'PhotoController@import')->name('photo.import');   # import data
+
     Route::resource('audit', 'AuditController');
 });

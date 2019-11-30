@@ -48,4 +48,13 @@
 </table>
 
 {!! $data->render() !!}
+
+<img src="{{ asset('images'. auth()->user()->getFirstMediaUrl()) }}" alt="" style="height: 300px; width: 300px">
+
+<form action="{{ route('photo.import') }}" method="POST" enctype="multipart/form-data">
+     @csrf
+     <input type="file" name="photo">
+     <button type="submit" class="btn btn-info">Upload</button>
+</form>
+
 @endsection

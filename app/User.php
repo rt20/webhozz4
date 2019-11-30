@@ -6,12 +6,14 @@ namespace App;
 use App\Traits\Impersonate;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use Notifiable, Impersonate, HasRoles;
+    use Notifiable, Impersonate, HasRoles, HasMediaTrait;
 
     /**
      * The attributes that are mass assignable.
